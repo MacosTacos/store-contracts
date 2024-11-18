@@ -1,5 +1,7 @@
 package org.example.viewmodel;
 
+import org.example.input.BookFilterInputModel;
+
 import java.util.List;
 
 public record BookPageViewModel(
@@ -7,6 +9,6 @@ public record BookPageViewModel(
         BookPageViewModel bookPageViewModel,
         List<BookPageViewModel> booksOfGenre,
         String description,
-        BookFilterViewModel bookFilterViewModel
+        BookFilterInputModel bookFilterInputModel
 ) {
 }
