@@ -17,7 +17,7 @@ public interface BookController {
             Model model
     );
 
-    @GetMapping
+    @GetMapping("/")
     String mainPage(
             Model model
     );
