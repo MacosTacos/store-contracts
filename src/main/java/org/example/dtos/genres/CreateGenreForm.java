@@ -6,4 +6,8 @@ public record CreateGenreForm (
         @NotBlank(message = "name cannot be empty")
         String name
 ) {
+        @Override
+        public @NotBlank(message = "name cannot be empty") String name() {
+                return name;
+        }
 }

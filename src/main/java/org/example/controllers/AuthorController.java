@@ -2,6 +2,7 @@ package org.example.controllers;
 
 import jakarta.validation.Valid;
 import org.example.dtos.authors.CreateAuthorForm;
+import org.example.dtos.authors.UpdateAuthorForm;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -22,15 +23,21 @@ public interface AuthorController {
             Model model
     );
 
+    @GetMapping
+    String getAll(
+            Model model
+    );
+
+
+
     @GetMapping("/update/{id}")
     String updateAuthorForm(
             @PathVariable("id") Long id,
             Model model);
 
-    @PostMapping("/author/{id}")
+    @PostMapping("/update")
     String updateAuthor(
-            @PathVariable("id") Long id,
-            @Valid @ModelAttribute("form") CreateAuthorForm form,
+            @Valid @ModelAttribute("form") UpdateAuthorForm form,
             BindingResult bindingResult,
             Model model
     );
