@@ -27,7 +27,7 @@ public interface BookController {
     @GetMapping("/genre")
     String booksByGenre(@RequestParam(required = false) Long id,
                         @RequestParam(defaultValue = "0") int page,
-                        @RequestParam(defaultValue = "10") int size,
+                        @RequestParam(defaultValue = "9") int size,
                         Model model);
 
 //    @GetMapping("/main")
@@ -36,7 +36,7 @@ public interface BookController {
 //            @RequestParam(defaultValue = "10") int size,
 //            Model model);
 
-    @GetMapping()
+    @GetMapping("/list")
     String getAll(Model model);
 
     @GetMapping("/search")
@@ -44,7 +44,7 @@ public interface BookController {
                   @RequestParam(required = false) List<Long> selectedAuthors,
                   @RequestParam(required = false) String name,
                   @RequestParam(defaultValue = "0") int page,
-                  @RequestParam(defaultValue = "10") int size,
+                  @RequestParam(defaultValue = "9") int size,
                   Model model);
 
     @GetMapping("/create")
