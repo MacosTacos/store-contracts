@@ -1,15 +1,17 @@
 package org.example.dtos.auth;
 
-import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotEmpty;
 
 public record RegistrationForm(
-        @NotBlank(message = "name can not be empty")
+        @NotEmpty(message = "name cannot be empty")
         String name,
-        @NotBlank(message = "login can not be empty")
+        @NotEmpty(message = "login cannot be empty")
+        @Email(message = "invalid email")
         String email,
-        @NotBlank(message = "password cannot be empty")
+        @NotEmpty(message = "password cannot be empty")
         String password,
-        @NotBlank(message = "password cannot be empty")
+        @NotEmpty(message = "password cannot be empty")
         String confirmPassword
 ) {
 }

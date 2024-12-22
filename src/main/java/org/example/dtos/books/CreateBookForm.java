@@ -9,11 +9,10 @@ public record CreateBookForm(
         String name,
         String description,
         @Positive(message = "price must be positive")
-        @NotNull(message = "price can not be null")
+        @NotNull(message = "price cannot be null")
         Double price,
         @Min(value = 1500, message = "wrong publication year")
-        @Max(value = 2024, message = "wrong publication year")
-        @NotNull(message = "price can not be null")
+        @NotNull(message = "price cannot be null")
         Integer publicationYear,
         List<Long> genreIds,
         List<Long> authorIds

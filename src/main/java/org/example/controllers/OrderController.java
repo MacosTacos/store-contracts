@@ -1,21 +1,30 @@
 package org.example.controllers;
 
-import jakarta.validation.Valid;
-import org.example.dtos.orders.OrderForm;
-import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
+
+import java.security.Principal;
 
 @RequestMapping("/orders")
 public interface OrderController {
 
-    @PostMapping("/create")
-    String createOrder(
-            @Valid @ModelAttribute("form") OrderForm form,
-            BindingResult bindingResult,
-            Model model
+    @PostMapping(path = "/create")
+    String createOrder(Principal principal);
+
+    @GetMapping(path = "get/{id}")
+    String getOrder(
+            @PathVariable("id") Long id,
+            Principal principal
     );
 
+    @PostMapping(path = "/complete/{id}")
+    String completeOrder(
+            @PathVariable("id") Long id,
+            Principal principal
+    );
+
+    @PostMapping(path = "/cancel/{id}")
+    String cancelOrder(
+            @PathVariable("id") Long id,
+            Principal principal
+    );
 }
