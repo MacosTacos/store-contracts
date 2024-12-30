@@ -1,16 +1,12 @@
 package org.example.dtos.genres;
 
-import jakarta.validation.constraints.Min;
-import jakarta.validation.constraints.NotBlank;
-
-public class UpdateGenreForm {
+public class GenreView {
     private Long id;
     private String name;
 
-    public UpdateGenreForm() {
+    public GenreView() {
     }
 
-    @Min(value = 1, message = "id must be positive")
     public Long getId() {
         return id;
     }
@@ -19,7 +15,6 @@ public class UpdateGenreForm {
         this.id = id;
     }
 
-    @NotBlank(message = "name cannot be empty")
     public String getName() {
         return name;
     }
